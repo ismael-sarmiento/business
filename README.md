@@ -1,0 +1,47 @@
+# IsBusiness · business.isuniverse.dev
+
+Website of IsBusiness: tailor-made websites for local businesses (design for mobile, WhatsApp bookings, Google).
+Static site on GitHub Pages (branch `main`, folder `/`), Spanish by default and English with `?lang=en`, light and dark.
+
+## Map
+
+| Path | What |
+|---|---|
+| `index.html`, `legal/index.html`, `404.html` | The pages. Spanish is written in the HTML (`data-i18n` keys) |
+| `i18n/es.json` | **Generated** from the HTML: `python3 tools/build_es.py` (also checks that `en.json` has the same keys) |
+| `i18n/en.json` | English, written by hand, same keys |
+| `assets/ds/` | Copy of the IsUniverse design system (portada `f03a82d`), identity comments removed, `views.js` (visit counter) left out |
+| `assets/scene.js` | The intro scene: the official «Is» traced and inked, «Business» decoded; exit to the bar mark |
+| `assets/business.js`, `assets/business.css` | Page behaviour and styles on top of the design system |
+| `assets/data.js` | Contact details and WhatsApp/mail messages: the only place to change the number |
+| `assets/boot.js` | Before first paint: waits for English when it was asked for |
+| `assets/brand/` | Favicons (byte copies of the portada), `apple-touch-icon.png`, `og.png` |
+| `tools/sync_mark.py` | Writes the official «Is» (path of `favicon-dark.svg`) into every page as `<symbol id="is-glyph">`; `--check` verifies it |
+| `tools/og.html`, `tools/og.css` | Source of `assets/brand/og.png` (1200×630) |
+| `qa/flows/` | Scripted journeys for `kit/tools/browser_check.mjs` |
+| `qa/check_identity.sh` | Fails if the served files name a person, an employer or a personal mailbox |
+| `CNAME`, `.nojekyll`, `robots.txt`, `sitemap.xml` | Publishing |
+
+## Rules
+
+- **Brand only.** The site never names the person behind IsBusiness (`qa/check_identity.sh`). The legal page keeps the holder's data marked «Pendiente» until the owner fills them in.
+- **The «Is» is never redrawn or set in a font**: it is the path of `assets/brand/favicon-dark.svg` (`tools/sync_mark.py --check`).
+- **Strict CSP** in `<meta>` (GitHub Pages cannot send headers): only own resources, no inline code (JSON-LD excepted), no third parties, no cookies, no analytics.
+- **Branch `paused`** (orphan): the «temporalmente desactivada» page that IsPanel switches to (Pages source) to pause the site. Never delete it; it keeps its own `CNAME`.
+- Commits without `Co-Authored-By: Claude`. Publish with a bundle through a Codespace (see the private `kit`, `docs/03-publicar.md`).
+
+## Checks (from the parent folder `is-universe/`)
+
+```bash
+python3 business/tools/build_es.py && python3 business/tools/sync_mark.py --check && bash business/qa/check_identity.sh
+python3 kit/tools/check_site.py business
+python3 kit/tools/serve_nostore.py business 8803   # then:
+node kit/tools/browser_check.mjs http://127.0.0.1:8803/ --flow business/qa/flows/intro.js   # also lang.js, theme-faq.js
+node kit/tools/browser_check.mjs http://127.0.0.1:8803/legal/ --flow business/qa/flows/legal.js
+node kit/tools/browser_check.mjs http://127.0.0.1:8803/no-existe --expect-status 404
+```
+
+## Share image
+
+Serve the folder, then `node kit/tools/browser_check.mjs http://127.0.0.1:8803/tools/og.html --widths 1200 --schemes dark --shots DIR`
+and crop the top 1200×630 of `DIR/1200-dark.png` into `assets/brand/og.png`.
