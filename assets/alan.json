@@ -1,0 +1,54 @@
+{
+ "es": {
+  "assistant": {
+   "name": "Alan", "badge": "Beta",
+   "subtitle": "Asistente de IsBusiness · responde con la información de esta web, sin datos privados",
+   "open": "¿Te ayudo?", "openLabel": "Abrir el asistente", "close": "Cerrar el asistente",
+   "typing": "Alan está escribiendo…", "placeholder": "Escribe tu pregunta…", "send": "Enviar",
+   "greeting": "¡Hola! Soy Alan, el asistente de IsBusiness. Te cuento qué incluye una web, cómo trabajamos y cómo pedir tu demo gratis.",
+   "suggestions": ["¿Cuánto cuesta una web?", "¿Qué incluye?", "¿Cómo pido mi demo?", "¿La web es mía?"],
+   "fallback": { "answer": "No tengo una respuesta exacta para eso en esta versión beta. Puedo contarte qué incluye una web, cómo funciona la demo gratis, el precio o cómo contactar. Si lo prefieres, escríbenos y te respondemos.", "actions": [{ "label": "Escribir por WhatsApp", "href": "WA" }] }
+  },
+  "faq": [
+   { "q": "¿Cuánto cuesta una web?", "keywords": ["precio", "cuesta", "cuanto", "presupuesto", "tarifa", "coste", "pagar", "barato"], "a": "Depende de lo que necesites. Primero te preparamos una demo gratis de tu web; si te gusta, te damos un presupuesto cerrado, sin sorpresas ni letra pequeña.", "actions": [{ "label": "Pedir mi demo gratis", "href": "WA" }] },
+   { "q": "¿Qué incluye?", "keywords": ["incluye", "servicios", "ofreceis", "haceis", "contiene", "trae"], "a": "Diseño a medida con tu estilo, pensada para el móvil, reservas por WhatsApp, lista para Google, rápida y segura (sin cookies ni rastreadores) y cambios cuando los necesites.", "actions": [{ "label": "Ver qué incluye", "href": "#incluye" }] },
+   { "q": "¿Cómo pido mi demo?", "keywords": ["demo", "gratis", "prueba", "empezar", "pedir", "solicitar", "ejemplo"], "a": "Escríbenos por WhatsApp o por correo y cuéntanos qué haces. Te preparamos una demo privada de tu web, la ajustamos contigo y, si te convence, la publicamos con tu dominio.", "actions": [{ "label": "Pedir por WhatsApp", "href": "WA" }, { "label": "Cómo funciona", "href": "#proceso" }] },
+   { "q": "¿La web es mía?", "keywords": ["mia", "propiedad", "propietario", "codigo", "duena", "dueno", "entregar"], "a": "Sí. El dominio es tuyo y, si algún día lo quieres, te entregamos el código completo de tu web." },
+   { "q": "¿Necesito un dominio?", "keywords": ["dominio", "direccion", "url", ".com", ".es"], "a": "No hace falta que lo tengas ya: te ayudamos a elegirlo y a registrarlo a tu nombre." },
+   { "q": "¿Puedo cambiar cosas después?", "keywords": ["cambios", "cambiar", "actualizar", "mantenimiento", "modificar", "precios", "horario"], "a": "Sí. Precios, horarios, servicios o fotos: nos escribes y lo actualizamos por ti." },
+   { "q": "¿Cómo funcionan las reservas?", "keywords": ["reservas", "reservar", "cita", "citas", "agenda", "whatsapp", "turno"], "a": "Tu cliente elige servicio, día y hora en la web y se abre WhatsApp con el mensaje ya escrito. Tú confirmas la cita, como siempre. No necesita instalar nada." },
+   { "q": "¿Apareceré en Google?", "keywords": ["google", "buscador", "seo", "aparecer", "encontrar", "maps", "ficha"], "a": "La web sale preparada para Google: datos claros, tu ficha de Google y Search Console, para que te encuentren cuando buscan en tu zona." },
+   { "q": "¿Lleváis redes sociales?", "keywords": ["redes", "instagram", "sociales", "tiktok", "facebook", "publicaciones"], "a": "Estamos preparando la gestión de redes sociales para que tu negocio brille también en Instagram, con la misma imagen que tu web. Próximamente." },
+   { "q": "¿Para qué negocios es?", "keywords": ["negocios", "sector", "barberia", "restaurante", "tienda", "taller", "academia", "estetica"], "a": "Para negocios locales: barberías y peluquerías, restaurantes y cafeterías, tiendas, estética y bienestar, talleres y oficios, academias… Diseñamos la web alrededor de lo que tu cliente viene a hacer.", "actions": [{ "label": "Ver sectores", "href": "#sectores" }] },
+   { "q": "¿Cómo os contacto?", "keywords": ["contacto", "contactar", "correo", "email", "telefono", "hablar", "llamar", "escribir"], "a": "Por WhatsApp o por correo (contacto@isuniverse.dev). Respondemos en horario laboral.", "actions": [{ "label": "WhatsApp", "href": "WA" }, { "label": "Enviar un correo", "href": "MAIL" }] },
+   { "q": "¿Usáis cookies?", "keywords": ["cookies", "privacidad", "datos", "rastreadores", "analitica"], "a": "No. Esta web no usa cookies, analítica ni rastreadores. Si nos escribes, usamos tus datos solo para contestarte.", "actions": [{ "label": "Aviso legal y privacidad", "href": "/legal/" }] },
+   { "q": "¿Qué puedes hacer?", "keywords": ["puedes hacer", "capacidades", "asistente", "ayuda", "alan"], "a": "Puedo contarte qué incluye una web, cómo funciona la demo gratis, el precio, las reservas por WhatsApp o cómo contactar. Respondo solo con la información pública de esta web." }
+  ]
+ },
+ "en": {
+  "assistant": {
+   "name": "Alan", "badge": "Beta",
+   "subtitle": "IsBusiness assistant · answers from this website, no private data",
+   "open": "Can I help?", "openLabel": "Open the assistant", "close": "Close the assistant",
+   "typing": "Alan is typing…", "placeholder": "Type your question…", "send": "Send",
+   "greeting": "Hi! I'm Alan, the IsBusiness assistant. I can tell you what a website includes, how we work and how to get your free demo.",
+   "suggestions": ["How much does a website cost?", "What's included?", "How do I get my demo?", "Is the website mine?"],
+   "fallback": { "answer": "I don't have an exact answer for that in this beta. I can tell you what a website includes, how the free demo works, the price or how to get in touch. Or just message us and we'll reply.", "actions": [{ "label": "Message us on WhatsApp", "href": "WA" }] }
+  },
+  "faq": [
+   { "q": "How much does a website cost?", "keywords": ["price", "cost", "much", "quote", "budget", "pay", "cheap"], "a": "It depends on what you need. First we prepare a free demo of your website; if you like it, we give you a fixed quote, with no surprises or small print.", "actions": [{ "label": "Get my free demo", "href": "WA" }] },
+   { "q": "What's included?", "keywords": ["included", "include", "services", "offer", "contains"], "a": "Tailor-made design in your style, built for mobile, WhatsApp bookings, ready for Google, fast and secure (no cookies or trackers) and changes whenever you need them.", "actions": [{ "label": "See what's included", "href": "#incluye" }] },
+   { "q": "How do I get my demo?", "keywords": ["demo", "free", "trial", "start", "request", "example"], "a": "Message us on WhatsApp or by email and tell us what you do. We prepare a private demo of your website, fine-tune it with you and, if you like it, publish it on your domain.", "actions": [{ "label": "Ask on WhatsApp", "href": "WA" }, { "label": "How it works", "href": "#proceso" }] },
+   { "q": "Is the website mine?", "keywords": ["mine", "own", "owner", "ownership", "code", "hand"], "a": "Yes. The domain is yours and, if you ever want it, we hand you the full code of your website." },
+   { "q": "Do I need a domain?", "keywords": ["domain", "address", "url", ".com"], "a": "You don't need one yet: we help you choose it and register it in your name." },
+   { "q": "Can I change things later?", "keywords": ["change", "changes", "update", "maintenance", "edit", "prices", "hours"], "a": "Yes. Prices, opening hours, services or photos: send us a message and we update them for you." },
+   { "q": "How do bookings work?", "keywords": ["booking", "bookings", "book", "appointment", "appointments", "whatsapp", "schedule"], "a": "Your customer picks a service, a day and a time on the website and WhatsApp opens with the message already written. You confirm the appointment, as always. Nothing to install." },
+   { "q": "Will I show up on Google?", "keywords": ["google", "search", "seo", "found", "maps", "profile"], "a": "The website is ready for Google: clear details, your Google profile and Search Console, so people nearby find you when they search." },
+   { "q": "Do you do social media?", "keywords": ["social", "instagram", "tiktok", "facebook", "posts"], "a": "We are getting social media management ready, so your business also shines on Instagram, with the same look as your website. Coming soon." },
+   { "q": "Which businesses is it for?", "keywords": ["business", "businesses", "trade", "barber", "restaurant", "shop", "workshop", "academy", "beauty"], "a": "Local businesses: barbers and hair salons, restaurants and cafés, shops, beauty and wellbeing, workshops and trades, academies… We design the website around what your customers come to do.", "actions": [{ "label": "See trades", "href": "#sectores" }] },
+   { "q": "How do I contact you?", "keywords": ["contact", "email", "mail", "phone", "talk", "call", "write", "reach"], "a": "On WhatsApp or by email (contacto@isuniverse.dev). We reply during business hours.", "actions": [{ "label": "WhatsApp", "href": "WA" }, { "label": "Send an email", "href": "MAIL" }] },
+   { "q": "Do you use cookies?", "keywords": ["cookies", "privacy", "data", "trackers", "analytics"], "a": "No. This website uses no cookies, analytics or trackers. If you write to us, we only use your details to answer you.", "actions": [{ "label": "Legal notice and privacy", "href": "/legal/" }] },
+   { "q": "What can you do?", "keywords": ["can you do", "capabilities", "assistant", "help", "alan"], "a": "I can tell you what a website includes, how the free demo works, the price, WhatsApp bookings or how to get in touch. I only answer from the public information on this website." }
+  ]
+ }
+}

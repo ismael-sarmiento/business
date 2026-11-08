@@ -33,6 +33,27 @@ function initSteps() {
   }), { rootMargin: '0px 0px -25% 0px' }).observe(steps);
 }
 
+// Alan, the assistant of every IsUniverse site, with the public knowledge of IsBusiness (assets/alan.json):
+// local, no network beyond that file, no data about the person behind IsBusiness. WA / MAIL become the contact links.
+async function initAlan() {
+  if (!document.body.hasAttribute('data-alan')) return;
+  const [{ createAssistant, faqMatcher }, data] = await Promise.all([import('./ds/assistant.js'), fetch('/assets/alan.json').then(r => r.json())]);
+  if (globalThis.isaStartup?.isFailed()) return;
+  const cfg = lang => ({ ...data[lang].assistant, match: faqMatcher(data[lang].faq) });
+  const go = href => {
+    const lang = i18n.lang(), target = href === 'WA' ? waHref(lang) : href === 'MAIL' ? mailHref(lang) : href;
+    if (target.startsWith('#')) { document.querySelector(target)?.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth' }); return; }
+    if (/^https?:/.test(target)) window.open(target, '_blank', 'noopener'); else location.href = target;
+  };
+  const alan = createAssistant({ ...cfg(i18n.lang()), onAction: ({ href }) => { if (href) go(href); } });
+  i18n.onChange(lang => alan.refresh(cfg(lang)));
+  const intro = document.getElementById('intro');   // never on top of the intro
+  if (intro && !intro.hidden) {
+    alan.tuck(true);
+    new MutationObserver(() => { if (intro.hidden) alan.tuck(false); }).observe(intro, { attributes: true, attributeFilter: ['hidden'] });
+  }
+}
+
 // the phone of the hero only plays while it is on screen (and never under the intro)
 function initDevice() {
   const device = document.querySelector('.device');
@@ -60,6 +81,7 @@ async function boot() {
   startup.ready();
   initSteps();
   initDevice();
+  void initAlan().catch(() => console.warn('Alan is unavailable.'));
   document.querySelectorAll('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });
 }
 
