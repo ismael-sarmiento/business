@@ -6,10 +6,13 @@
 /* ===================== 1. Brand mark (the official «Is», #is-glyph) ===================== */
 .is-symbol { position: absolute; width: 0; height: 0; overflow: hidden; }
 #is-glyph path { fill: inherit; }
-.brand { align-items: flex-end; gap: 5px; }
-.brand-mark { width: auto; height: 40px; margin-bottom: -3px; fill: var(--gold); flex: none; transition: transform .3s var(--ease-out); overflow: visible; }
+/* The SVG «Is» takes exactly the place of the Allura «Is» of the other sites (ds/base.css .brand-is): its ink is
+   0.651 × --brand-is tall and goes 0.05 × --brand-is under the baseline of the name, and the name starts where the
+   Allura advance ends (0.076 × --brand-is before the end of the ink), as in «Ismael», «IsProfile» or «IsAcademy». */
+.brand-mark { width: auto; height: calc(var(--brand-is) * .651); margin: 0 calc(var(--brand-is) * -.076 + 1px) calc(var(--brand-is) * -.05) 0;
+  fill: var(--gold); stroke: var(--gold); stroke-width: 10; /* ≈ the .5px text-stroke of the Allura «Is» */ flex: none; transition: transform .3s var(--ease-out); overflow: visible; }
 .brand:hover .brand-mark { transform: rotate(-4deg); }
-.brand-name { font-size: 21px; font-weight: 600; letter-spacing: -.02em; line-height: 1; padding-bottom: 4px; }
+.brand--small { --brand-is: 24px; --brand-name: 13px; color: var(--text-2); }
 body.entering .topbar .brand { opacity: 0; }
 ::selection { background: rgba(200, 149, 63, .28); color: var(--text); }
 html { accent-color: var(--gold); scrollbar-color: var(--gold) transparent; }
@@ -105,7 +108,7 @@ body.intro-open .device * { animation-play-state: paused !important; }
 .steps.run::after { transform: scaleX(1); }
 .step { position: relative; display: grid; gap: 8px; align-content: start; }
 .step-n { position: relative; z-index: 1; display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface);
-  font-family: var(--font-mono); font-weight: 600; font-size: 18px; color: var(--text-2); margin-bottom: 8px;
+  font-family: var(--font-sans); font-weight: 600; font-variant-numeric: tabular-nums; font-size: 20px; color: var(--text-2); margin-bottom: 8px;
   transition: border-color .4s ease, color .4s ease, box-shadow .4s ease; }
 .steps.run .step-n { border-color: var(--gold); color: var(--gold-text); box-shadow: 0 0 0 6px var(--gold-glow); }
 .steps.run .step:nth-child(1) .step-n { transition-delay: .2s; }
@@ -149,8 +152,8 @@ body.intro-open .device * { animation-play-state: paused !important; }
 .contact-note { margin: 8px 0 0; }
 
 /* ===================== 7. Footer and legal ===================== */
-.footer-brand { display: inline-flex; align-items: center; gap: 8px; }
-.footer-brand svg { width: auto; height: 22px; fill: var(--gold); }
+.footer-brand { display: inline-flex; align-items: baseline; gap: 10px; }
+.footer-year { font-size: 14px; }
 .legal { padding: 64px 0 96px; }
 .legal h1 { font-size: clamp(32px, 4.4vw, 48px); margin-bottom: 12px; }
 .legal h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 40px 0 12px; }

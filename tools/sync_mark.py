@@ -15,9 +15,9 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 svg = (ROOT / 'assets/brand/favicon-dark.svg').read_text()
 path = re.search(r'<path [^>]*/>', svg).group(0)
 path = re.sub(r' fill="[^"]*"', '', path)   # colour comes from CSS (currentColor), geometry stays verbatim
-# tight box of the glyph inside the 1024 favicon square (measured in Chrome: getBBox of the transformed path)
+# tight box of the ink inside the 1024 favicon square: x 174–850, y 234–790 (baseline at y 746.5)
 SYMBOL = ('<svg class="is-symbol" width="0" height="0" aria-hidden="true" focusable="false">'
-          f'<symbol id="is-glyph" viewBox="170 0 686 795">{path}</symbol></svg>')
+          f'<symbol id="is-glyph" viewBox="174 234 676 556">{path}</symbol></svg>')
 PAGES = ['index.html', '404.html', 'legal/index.html']
 pattern = re.compile(r'<!--IS_SYMBOL-->|<svg class="is-symbol".*?</svg>', re.S)
 check = '--check' in sys.argv

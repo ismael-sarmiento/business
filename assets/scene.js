@@ -8,7 +8,7 @@ import { reducedMotion } from './ds/ds.js';
 import { ink, pixels } from './ds/fx.js';
 
 const GLYPHS = '01/{}#$%@=+*ABCDEFXYZ';
-const WORD_X = 318;
+const WORD_X = 296;
 const EASE_OUT = 'cubic-bezier(.2, .8, .2, 1)';
 const EASE_IN_OUT = 'cubic-bezier(.65, 0, .35, 1)';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -29,9 +29,14 @@ function animate(svg, duration, step) {
 }
 
 // size the viewBox to the real word once the font is ready, so the mark never overflows or floats
+// and keep the «Is» the same size as on every site: the signatures are drawn at min(1160px, 92vw) for 1401 units
+// (intro.css), so a shorter word gives a narrower drawing, never a bigger «Is» (same rule in IsPanel)
 function fit(svg) {
   const w = svg.querySelector('.word').getComputedTextLength();
-  if (w) svg.setAttribute('viewBox', `0 0 ${Math.ceil(WORD_X + w + 30)} 330`);
+  if (!w) return;
+  const units = Math.ceil(WORD_X + w + 30);
+  svg.setAttribute('viewBox', `0 0 ${units} 330`);
+  svg.style.width = `min(100%, calc(min(1160px, 92vw) * ${units} / 1401))`;
 }
 function cursorAfter(svg) {
   const word = svg.querySelector('.word');
