@@ -1,0 +1,16 @@
+/* tools/og.html only (the source of assets/brand/og.png) */
+html, body { margin: 0; background: var(--ink-950); }
+.is-symbol { position: absolute; width: 0; height: 0; }
+.og { position: relative; width: 1200px; height: 630px; overflow: hidden; display: grid; align-content: center; justify-items: center; gap: 18px;
+  font-family: var(--font-sans); color: var(--cream-200);
+  background: radial-gradient(60% 80% at 50% 38%, rgba(226, 178, 92, .16), transparent 70%), var(--ink-950); }
+.og .ds-circuit { inset: 0; width: 100%; height: 100%; opacity: .55; }
+.og .ds-circuit path { animation: none; stroke-dashoffset: 0; }
+.og .ds-circuit circle { animation: none; opacity: 1; }
+.og-mark { position: relative; display: flex; align-items: flex-end; gap: 18px; }
+.og-mark svg { height: 190px; width: auto; fill: var(--gold-500); margin-bottom: -12px; }
+.og-mark span { font-size: 132px; font-weight: 500; letter-spacing: -4px; line-height: 1; }
+.og-line { position: relative; margin: 18px 0 0; font-size: 34px; color: var(--mist-300); }
+.og-chips { position: relative; display: flex; gap: 12px; margin: 6px 0 0; }
+.og-chips span { padding: 8px 18px; border-radius: 999px; border: 1px solid rgba(226, 178, 92, .55); color: var(--gold-400); font-size: 22px; }
+.og-url { position: relative; margin: 14px 0 0; font-size: 20px; letter-spacing: .08em; color: var(--mist-500); }
