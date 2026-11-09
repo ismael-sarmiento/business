@@ -51,6 +51,8 @@ function complete(svg) {
   svg.querySelector('.word').textContent = svg.dataset.word;
   svg.querySelector('.cursor').setAttribute('opacity', '0');
   svg.classList.add('is-live');
+  // Reduced motion and an early skip still use the official signature scale.
+  void document.fonts.ready.then(() => fit(svg));
 }
 
 async function play(svg) {
