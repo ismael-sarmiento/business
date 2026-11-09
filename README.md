@@ -27,6 +27,7 @@ Static site on GitHub Pages (branch `main`, folder `/`), Spanish by default and 
 - **Brand only.** The site never names the person behind IsBusiness (`qa/check_identity.sh`). The legal page keeps the holder's data marked «Pendiente» until the owner fills them in.
 - **The «Is» is never redrawn or set in a font**: it is the path of `assets/brand/favicon-dark.svg` (`tools/sync_mark.py --check`).
 - **Strict CSP** in `<meta>` (GitHub Pages cannot send headers): only own resources, no inline code (JSON-LD excepted), no third parties, no cookies, no analytics.
+- External links use `noopener noreferrer`; scripted openings use both features too. Alan reads only the local `assets/alan.json` and does not contact an AI service.
 - **Branch `paused`** (orphan): the «temporalmente desactivada» page that IsPanel switches to (Pages source) to pause the site. Never delete it; it keeps its own `CNAME`.
 - Commits without `Co-Authored-By: Claude`. Publish with a bundle through a Codespace (see the private `kit`, `docs/03-publicar.md`).
 

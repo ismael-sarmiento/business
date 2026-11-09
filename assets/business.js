@@ -43,7 +43,7 @@ async function initAlan() {
   const go = href => {
     const lang = i18n.lang(), target = href === 'WA' ? waHref(lang) : href === 'MAIL' ? mailHref(lang) : href;
     if (target.startsWith('#')) { document.querySelector(target)?.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth' }); return; }
-    if (/^https?:/.test(target)) window.open(target, '_blank', 'noopener'); else location.href = target;
+    if (/^https?:/.test(target)) window.open(target, '_blank', 'noopener,noreferrer'); else location.href = target;
   };
   const alan = createAssistant({ ...cfg(i18n.lang()), onAction: ({ href }) => { if (href) go(href); } });
   i18n.onChange(lang => alan.refresh(cfg(lang)));
