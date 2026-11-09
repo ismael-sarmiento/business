@@ -48,6 +48,13 @@ for page, meta in PAGES.items():
         if k in es and es[k] != v: sys.exit(f'FAIL {k} differs between pages')
         es[k] = v
     es[f'{meta}.title'] = c.title.strip(); es[f'{meta}.description'] = c.desc
+# data-i18n-html: the inner HTML as written (emphasis such as <em> is part of the text)
+import re
+for page in PAGES:
+    for tag, key, inner in re.findall(r'<(\w+)[^>]*data-i18n-html="([^"]+)"[^>]*>(.*?)</\1>', (ROOT / page).read_text(), re.S):
+        inner = ' '.join(inner.split())
+        if key in es and es[key] != inner: sys.exit(f'FAIL {key} differs between pages')
+        es[key] = inner
 es = dict(sorted(es.items()))
 (ROOT / 'i18n/es.json').write_text(json.dumps(es, ensure_ascii=False, indent=1) + '\n')
 print(f'i18n/es.json: {len(es)} keys')

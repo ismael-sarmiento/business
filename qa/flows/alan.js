@@ -7,7 +7,8 @@ const shown = !fab.hidden && !fab.classList.contains('fab-tucked');
 fab.click(); await wait(500);
 const panel = $('#assistantPanel'), input = panel.querySelector('input, textarea');
 input.value = '¿Cuánto cuesta una web?'; input.dispatchEvent(new Event('input', { bubbles: true }));
-panel.querySelector('form')?.requestSubmit(); await wait(2200);
+panel.querySelector('form')?.requestSubmit();
+for (let i = 0; i < 30 && !/presupuesto cerrado/.test(panel.textContent); i++) await wait(200);   // Alan «types» first
 const text = panel.textContent;
 const es = /presupuesto cerrado/.test(text) && [...panel.querySelectorAll('button, a')].some(b => /demo gratis/i.test(b.textContent));
 const anon = !/ismael|sarmiento/i.test(text);
