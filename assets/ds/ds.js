@@ -1,6 +1,7 @@
 // Vendored from the IsUniverse design system (portada f03a82d, assets/ds/ds.js); identity comments removed.
 import { syncFavicon } from './favicon.js';
 import { escapeForeignFrame } from './frame-guard.js';
+import { countView } from './views.js';
 
 // The theme choice is shared by every site on this origin, IsAcademy included ('isa-theme' is its historical key).
 const THEME_KEY = 'isa-theme';
@@ -130,4 +131,5 @@ export function initDesignSystem() {
   initTopbar();
   initSpotlight();
   observeReveals();
+  countView();       // one anonymous page view (no cookie or identifier)
 }
