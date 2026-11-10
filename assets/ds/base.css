@@ -151,3 +151,4 @@ details[open]::details-content { block-size: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+.language-status { margin-block: 0; padding-block: 8px; color: var(--text-2); font-size: 14px; }

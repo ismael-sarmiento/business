@@ -46,3 +46,7 @@ node kit/tools/browser_check.mjs http://127.0.0.1:8803/no-existe --expect-status
 
 Serve the folder, then `node kit/tools/browser_check.mjs http://127.0.0.1:8803/tools/og.html --widths 1200 --schemes dark --shots DIR`
 and crop the top 1200×630 of `DIR/1200-dark.png` into `assets/brand/og.png`.
+
+## Language recovery
+
+The local design-system copy rejects failed HTTP dictionaries, keeps the committed language until its current request succeeds, and permits retry. Both language buttons are busy during a change; the accessible bar status explains a failure without exposing provider errors.

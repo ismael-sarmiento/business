@@ -1,4 +1,4 @@
-// Vendored from the IsUniverse design system (portada f03a82d, assets/ds/i18n.js); identity comments removed.
+// Languages for IsBusiness: Spanish by default, English by explicit choice.
 import { rememberReadingPosition } from './ds.js';
 const SUPPORTED = ['es', 'en'];
 const KEY = 'isa-lang';  // shared by every site on the origin (IsAcademy's historical key)
@@ -15,8 +15,11 @@ export function detectLang() {
 
 export function createI18n({ base, dict: dictUrl }) {
   const cache = {}, listeners = [];
-  let lang = 'es', dict = {};
-  const load = code => (cache[code] ??= fetch(dictUrl(code)).then(r => r.json()));
+  let lang = 'es', dict = {}, languageRequest = 0, changingLanguage = false;
+  const load = code => (cache[code] ??= fetch(dictUrl(code)).then(r => {
+    if (!r.ok) throw new Error('Language dictionary unavailable');
+    return r.json();
+  }).catch(error => { delete cache[code]; throw error; }));
   const t = key => dict[key] ?? key.split('.').reduce((o, k) => (o == null ? undefined : o[k]), dict) ?? key;
 
   // keep the address, the canonical link and og tags in line with the language shown, so every version is shareable
@@ -31,9 +34,13 @@ export function createI18n({ base, dict: dictUrl }) {
   }
 
   async function setLang(next, persist = false) {
-    lang = SUPPORTED.includes(next) ? next : 'es';
-    dict = await load(lang);
+    const request = ++languageRequest;
+    const target = SUPPORTED.includes(next) ? next : 'es';
+    const loaded = await load(target);
+    if (request !== languageRequest) return;
     const restorePosition = persist ? rememberReadingPosition() : () => {};
+    lang = target;
+    dict = loaded;
     if (persist) store(lang);   // only an explicit choice is remembered
     document.documentElement.lang = lang;
     syncUrl();
@@ -49,9 +56,26 @@ export function createI18n({ base, dict: dictUrl }) {
     restorePosition();
   }
 
+  async function changeLanguage() {
+    if (changingLanguage) return;
+    changingLanguage = true;
+    const buttons = [...document.querySelectorAll('[data-action="lang"]')];
+    const status = document.getElementById('languageStatus');
+    if (status) status.hidden = true;
+    buttons.forEach(button => { button.disabled = true; button.setAttribute('aria-busy', 'true'); });
+    try {
+      await setLang(lang === 'es' ? 'en' : 'es', true);
+    } catch {
+      if (status) status.hidden = false;
+    } finally {
+      buttons.forEach(button => { button.disabled = false; button.removeAttribute('aria-busy'); });
+      changingLanguage = false;
+    }
+  }
+
   async function start() {
     document.addEventListener('click', e => {
-      if (e.target.closest('[data-action="lang"]')) setLang(lang === 'es' ? 'en' : 'es', true);
+      if (e.target.closest('[data-action="lang"]')) void changeLanguage();
     });
     const first = detectLang();
     try {
