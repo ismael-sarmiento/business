@@ -7,13 +7,13 @@ Global roots (L0):
 - Codex: `~/.codex/AGENTS.md`
 
 Public repository `business`, local copy `~/workspaces/personal/projects/is-universe/business/`, served by GitHub Pages at
-`https://business.isuniverse.dev/` (CNAME `business` → the account's github.io, DNS only). How IsUniverse builds and checks
+`https://isuniverse.dev/business/` after the Pages cutover (inherits the owner site domain). How IsUniverse builds and checks
 sites: the private `kit` (`../kit/AGENTS.md`, skill `isuniverse-web`). Domain rules: `../docs/dominio/DOMINIO-ISUNIVERSE.md`.
 
 ## Purpose
 
 IsBusiness is the business branch of IsUniverse: affordable websites for local businesses (later, social media).
-It is NOT linked from the portada, the CV or LinkedIn, and **it never names the person behind it**.
+Its public page does not advertise the owner’s portada, CV or LinkedIn, and **it never names the person behind it**.
 
 ## Rules
 

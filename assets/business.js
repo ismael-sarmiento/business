@@ -6,8 +6,9 @@ import { initIntro } from './ds/intro.js';
 import { markScene } from './scene.js';
 import { waHref, mailHref } from './data.js';
 
-const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href') || 'https://business.isuniverse.dev/';
-const i18n = createI18n({ base: canonical.split('?')[0], dict: code => `/i18n/${code}.json` });
+const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href') || 'https://isuniverse.dev/business/';
+const root = new URL('../', import.meta.url);
+const i18n = createI18n({ base: canonical.split('?')[0], dict: code => new URL(`i18n/${code}.json`, root) });
 
 // every WhatsApp and mail link carries the message in the language shown
 function syncContact(lang) {
@@ -37,13 +38,13 @@ function initSteps() {
 // local, no network beyond that file, no data about the person behind IsBusiness. WA / MAIL become the contact links.
 async function initAlan() {
   if (!document.body.hasAttribute('data-alan')) return;
-  const [{ createAssistant, faqMatcher }, data] = await Promise.all([import('./ds/assistant.js'), fetch('/assets/alan.json').then(r => r.json())]);
+  const [{ createAssistant, faqMatcher }, data] = await Promise.all([import('./ds/assistant.js'), fetch(new URL('assets/alan.json', root)).then(r => r.json())]);
   if (globalThis.isaStartup?.isFailed()) return;
   const cfg = lang => ({ ...data[lang].assistant, match: faqMatcher(data[lang].faq) });
   const go = href => {
     const lang = i18n.lang(), target = href === 'WA' ? waHref(lang) : href === 'MAIL' ? mailHref(lang) : href;
     if (target.startsWith('#')) { document.querySelector(target)?.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth' }); return; }
-    if (/^https?:/.test(target)) window.open(target, '_blank', 'noopener,noreferrer'); else location.href = target;
+    if (/^https?:/.test(target)) window.open(target, '_blank', 'noopener,noreferrer'); else location.href = new URL(target, root).href;
   };
   const alan = createAssistant({ ...cfg(i18n.lang()), onAction: ({ href }) => { if (href) go(href); } });
   i18n.onChange(lang => alan.refresh(cfg(lang)));

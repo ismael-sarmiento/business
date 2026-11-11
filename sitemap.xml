@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://business.isuniverse.dev/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://business.isuniverse.dev/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://business.isuniverse.dev/?lang=en"/>
+    <loc>https://isuniverse.dev/business/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://isuniverse.dev/business/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isuniverse.dev/business/?lang=en"/>
     <lastmod>2026-11-08</lastmod>
   </url>
   <url>
-    <loc>https://business.isuniverse.dev/legal/</loc>
+    <loc>https://isuniverse.dev/business/legal/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://isuniverse.dev/business/legal/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isuniverse.dev/business/legal/?lang=en"/>
     <lastmod>2026-11-08</lastmod>
   </url>
 </urlset>

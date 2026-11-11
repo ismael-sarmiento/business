@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://business.isuniverse.dev/sitemap.xml
+Sitemap: https://isuniverse.dev/business/sitemap.xml

@@ -1,7 +1,7 @@
-# IsBusiness · business.isuniverse.dev
+# IsBusiness · isuniverse.dev/business/
 
 Website of IsBusiness: tailor-made websites for local businesses (design for mobile, WhatsApp bookings, Google).
-Static site on GitHub Pages (branch `main`, folder `/`), Spanish by default and English with `?lang=en`, light and dark.
+Static project site on GitHub Pages (branch `main`, folder `/`), published at `/business/` using the owner site’s domain after cutover, Spanish by default and English with `?lang=en`, light and dark.
 
 ## Map
 
@@ -20,7 +20,7 @@ Static site on GitHub Pages (branch `main`, folder `/`), Spanish by default and 
 | `tools/og.html`, `tools/og.css` | Source of `assets/brand/og.png` (1200×630) |
 | `qa/flows/` | Scripted journeys for `kit/tools/browser_check.mjs` |
 | `qa/check_identity.sh` | Fails if the served files name a person, an employer or a personal mailbox |
-| `CNAME`, `.nojekyll`, `robots.txt`, `sitemap.xml` | Publishing |
+| `.nojekyll`, `robots.txt`, `sitemap.xml` | Publishing |
 
 ## Rules
 
@@ -28,23 +28,23 @@ Static site on GitHub Pages (branch `main`, folder `/`), Spanish by default and 
 - **The «Is» is never redrawn or set in a font**: it is the path of `assets/brand/favicon-dark.svg` (`tools/sync_mark.py --check`).
 - **Strict CSP** in `<meta>` (GitHub Pages cannot send headers): only own resources, no inline code (JSON-LD excepted), no third parties, no cookies; the only connection is the page signal to `https://stats.isuniverse.dev` (`assets/ds/views.js`, isa-forms Worker on a neutral domain, F11). It sends no cookie or persistent visitor identifier and respects DNT/GPC. The private server log can include IP and network context for 30 days; aggregated counts omit IP and may remain longer, as explained in the published privacy notice.
 - External links use `noopener noreferrer`; scripted openings use both features too. Alan reads only the local `assets/alan.json` and does not contact an AI service.
-- **Branch `paused`** (orphan): the «temporalmente desactivada» page that IsPanel switches to (Pages source) to pause the site. Never delete it; it keeps its own `CNAME`.
+- **Branch `paused`** (orphan): the «temporalmente desactivada» page that IsPanel switches to (Pages source) to pause the site. Keep it available to IsPanel. It inherits the same domain as `main`.
 - Commits without `Co-Authored-By: Claude`. Publish verified bundles through the owner's Chrome and the protected one-shot Actions workflow (see the private `kit`, `docs/03-publicar.md`); Codespaces is an alternative. This Mac cannot push to GitHub.
 
 ## Checks (from the parent folder `is-universe/`)
 
 ```bash
 python3 business/tools/build_es.py && python3 business/tools/sync_mark.py --check && bash business/qa/check_identity.sh
-python3 kit/tools/check_site.py business
-python3 kit/tools/serve_nostore.py business 8803   # then:
-node kit/tools/browser_check.mjs http://127.0.0.1:8803/ --flow business/qa/flows/intro.js   # also lang.js, theme-faq.js
-node kit/tools/browser_check.mjs http://127.0.0.1:8803/legal/ --flow business/qa/flows/legal.js
-node kit/tools/browser_check.mjs http://127.0.0.1:8803/no-existe --expect-status 404
+python3 kit/tools/check_site.py business --base /business/
+python3 kit/tools/serve_nostore.py /tmp/isuniverse-preview 8803  # mount this repo as business/
+node kit/tools/browser_check.mjs http://127.0.0.1:8803/business/ --flow business/qa/flows/intro.js   # also lang.js, theme-faq.js
+node kit/tools/browser_check.mjs http://127.0.0.1:8803/business/legal/ --flow business/qa/flows/legal.js
+node kit/tools/browser_check.mjs http://127.0.0.1:8803/business/no-existe --expect-status 404
 ```
 
 ## Share image
 
-Serve the folder, then `node kit/tools/browser_check.mjs http://127.0.0.1:8803/tools/og.html --widths 1200 --schemes dark --shots DIR`
+Serve the folder, then `node kit/tools/browser_check.mjs http://127.0.0.1:8803/business/tools/og.html --widths 1200 --schemes dark --shots DIR`
 and crop the top 1200×630 of `DIR/1200-dark.png` into `assets/brand/og.png`.
 
 ## Language recovery

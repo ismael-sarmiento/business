@@ -6,7 +6,9 @@ let counted = false;
 
 export function countView() {
   try {
-    if (counted || location.hostname !== 'business.isuniverse.dev' || navigator.webdriver) return;
+    const current = location.origin === 'https://isuniverse.dev' && /^\/business(?:\/|$)/.test(location.pathname);
+    const legacy = location.origin === 'https://business.isuniverse.dev';
+    if (counted || !(current || legacy) || navigator.webdriver) return;
     if (navigator.doNotTrack === '1' || navigator.globalPrivacyControl) return;
     let referrer = '';
     try {
