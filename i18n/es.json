@@ -1,7 +1,7 @@
 {
  "contact.lead": "Escríbenos y te preparamos una demo gratis de tu web, sin compromiso.",
  "contact.mail": "Enviar un correo",
- "contact.note": "Respondemos en horario laboral. No usamos tus datos para nada más que contestarte.",
+ "contact.note": "Respondemos en horario laboral. Usamos lo que nos envíes para responderte.",
  "contact.title": "¿Hablamos de tu web?",
  "contact.wa": "Escribir por WhatsApp",
  "cta.demo": "Pide tu demo gratis",
@@ -72,12 +72,12 @@
  "legal.owner.contact": "Contacto",
  "legal.owner.id": "NIF",
  "legal.owner.name": "Nombre o razón social",
- "legal.p.0": "No usamos cookies, píxeles, rastreadores ni identificadores de visitante.",
+ "legal.p.0": "No usamos cookies, píxeles ni identificadores persistentes de visitante.",
  "legal.p.1": "La web no tiene formularios. Si nos escribes por WhatsApp o por correo, usamos tus datos solo para contestarte y prepararte la demo o el presupuesto, y no los cedemos a nadie.",
  "legal.p.2": "Conservamos la conversación mientras dure la relación contigo y la borramos cuando nos lo pidas, salvo lo que la ley obligue a guardar.",
  "legal.p.3": "WhatsApp es un servicio de Meta con su propia política de privacidad. El correo llega a un buzón del titular a través de Cloudflare Email Routing.",
  "legal.p.4": "La web se aloja en GitHub Pages (GitHub, Inc.), que puede registrar datos técnicos de la conexión, como la dirección IP, por seguridad.",
- "legal.p.5": "Para saber cuántas personas visitan la web, cada página vista envía una señal anónima con la ruta, la web de procedencia y el idioma del navegador. No se envía nada si tu navegador pide no ser rastreado (Do Not Track o GPC).",
+ "legal.p.5": "Para contar páginas vistas, cada página envía una señal con la ruta, la web de procedencia y el idioma del navegador. No se envía nada si tu navegador pide no ser rastreado (Do Not Track o GPC).",
  "legal.p.6": "Cloudflare, que recibe esa señal, puede añadir la IP, el país, la ciudad aproximada y el tipo de dispositivo y navegador. Ese registro se conserva 30 días y solo sirve para ver el uso de la web y frenar abusos; las cifras agregadas no llevan la IP y pueden conservarse más tiempo.",
  "legal.pending": "Pendiente",
  "legal.purpose": "Esta web informa sobre los servicios de diseño y desarrollo de webs para negocios de IsBusiness. No vende nada en línea ni tiene zona de clientes.",
@@ -122,5 +122,5 @@
  "theme": "Cambiar modo claro / oscuro",
  "trust.0": "Demo gratis, sin compromiso",
  "trust.1": "Presupuesto cerrado",
- "trust.2": "Sin cookies ni rastreadores"
+ "trust.2": "Sin cookies"
 }

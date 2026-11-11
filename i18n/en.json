@@ -1,7 +1,7 @@
 {
   "contact.lead": "Write to us and we will prepare a free demo of your website, with no strings attached.",
   "contact.mail": "Send an email",
-  "contact.note": "We reply during business hours. We only use your details to answer you.",
+  "contact.note": "We reply during business hours. We use what you send us to answer you.",
   "contact.title": "Shall we talk about your website?",
   "contact.wa": "Message us on WhatsApp",
   "cta.demo": "Get your free demo",
@@ -72,12 +72,12 @@
   "legal.owner.contact": "Contact",
   "legal.owner.id": "Tax ID (NIF)",
   "legal.owner.name": "Name or company name",
-  "legal.p.0": "We use no cookies, pixels, trackers or visitor identifiers.",
+  "legal.p.0": "We use no cookies, pixels or persistent visitor identifiers.",
   "legal.p.1": "The website has no forms. If you write to us on WhatsApp or by email, we use your details only to answer you and prepare your demo or quote, and we never share them.",
   "legal.p.2": "We keep the conversation while we work together and delete it when you ask us to, except what the law requires us to keep.",
   "legal.p.3": "WhatsApp is a Meta service with its own privacy policy. Email reaches the owner's mailbox through Cloudflare Email Routing.",
   "legal.p.4": "The website is hosted on GitHub Pages (GitHub, Inc.), which may log technical connection data, such as the IP address, for security.",
-  "legal.p.5": "To know how many people visit the website, each page view sends an anonymous signal with the path, the referring website and the browser language. Nothing is sent if your browser asks not to be tracked (Do Not Track or GPC).",
+  "legal.p.5": "To count page views, each page sends a signal with the path, the referring website and the browser language. Nothing is sent if your browser asks not to be tracked (Do Not Track or GPC).",
   "legal.p.6": "Cloudflare, which receives that signal, may add the IP address, country, approximate city and type of device and browser. That log is kept for 30 days and only serves to see how the website is used and to stop abuse; the aggregated figures carry no IP address and may be kept longer.",
   "legal.pending": "Pending",
   "legal.purpose": "This website describes the website design and development services of IsBusiness for businesses. It sells nothing online and has no customer area.",
@@ -122,5 +122,5 @@
   "theme": "Toggle light / dark mode",
   "trust.0": "Free demo, no strings attached",
   "trust.1": "Fixed quote",
-  "trust.2": "No cookies or trackers"
+  "trust.2": "No cookies"
 }
