@@ -1,10 +1,10 @@
-// Theme toggle (and back), FAQ opens with the keyboard-reachable summary, the steps line runs, every external link is safe.
+// Theme toggle (first press: the other scheme; second: back to the system), FAQ opens with the keyboard-reachable summary, the steps line runs, every external link is safe.
 $('[data-action="skip"]')?.click(); await wait(100); $('[data-action="enter"]')?.click(); await wait(2000);
 const before = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 $('.tools [data-action="theme"]').click(); await wait(200);
 const flipped = document.documentElement.dataset.theme === (before === 'dark' ? 'light' : 'dark');
 $('.tools [data-action="theme"]').click(); await wait(200);
-const back = document.documentElement.dataset.theme === before;
+const back = !document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches === (before === 'dark');   // second press: back to the system
 const d = $('.faq details'); d.querySelector('summary').click(); await wait(500);
 const open = d.open;
 $('#proceso').scrollIntoView(); await wait(900);
